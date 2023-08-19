@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap");
 
+body {
+  min-height: 100vh;
+}
+
+#layout {
+  flex: 1;
+  position: "relative";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 #header {
   position: absolute;
   top: 0;
@@ -37,7 +48,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: absolute;
+  width: 100vw;
   left: 0;
   right: 0;
   bottom: 0;
@@ -46,5 +57,4 @@
   color: white;
   font-weight: 500;
   gap: 0.2rem;
-  margin-top: auto;
 }
