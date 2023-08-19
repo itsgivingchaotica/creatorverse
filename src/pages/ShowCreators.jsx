@@ -1,7 +1,9 @@
 import React from "react";
 
 const ShowCreators = () => {
-  return <div>ShowCreators</div>;
+  return (
+    <div style={{ height: "1000px", overflow: "scroll" }}>ShowCreators</div>
+  );
 };
 
 export default ShowCreators;
