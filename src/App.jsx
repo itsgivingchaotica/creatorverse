@@ -23,8 +23,8 @@ const router = createHashRouter(
         }
       />
       <Route path="/add" element={<AddCreator />} />
-      <Route path="/edit" element={<EditCreator />} />
-      <Route path="/view" element={<ViewCreator />} />
+      <Route path="/edit/:id" element={<EditCreator />} />
+      <Route path="/view/:id" element={<ViewCreator />} />
     </Route>
   )
 );
