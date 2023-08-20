@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
+
+.creator-form-container {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.creator-form {
+  display: border-box;
+  margin-top: 500px;
+  width: 50vw !important;
+}
+
+label {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 24px;
+}
+
+input {
+  background-color: white !important;
+  color: black !important;
+}
+
+textarea {
+  background-color: white !important;
+  color: black !important;
+}
+
+.helper-text {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 8px;
+  color: white;
+  align-items: center;
+}
+
+.social-links-header {
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  color: var(--shocking-pink);
+  font-weight: 700;
+}
+
+.handle-icon-container {
+  display: flex;
+}
+
+.handle-icon {
+  margin-right: 10px;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  max-width: 50vw !important;
+}
+
+@media screen and (max-width: 600px) {
+  .creator-form {
+    width: 76vw !important;
+  }
+
+  .helper-text {
+    font-size: 12px;
+  }
+
+  .social-links-header {
+    font-size: 23px;
+  }
+}
