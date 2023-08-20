@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsYoutube, BsTwitter, BsInstagram } from "react-icons/bs";
+import { supabase } from "../client";
 import "../styles/addCreator.css";
 
 const AddCreator = () => {
@@ -33,14 +34,29 @@ const AddCreator = () => {
     setInstagramUrl(e.target.value);
   };
 
-  const handleSubmitForm = () => {
+  const handleSubmitForm = async () => {
     if (!name || !imageUrl || !description) {
       console.log("prevent submission");
     } else if (!youtubeUrl && !twitterUrl && !instagramUrl) {
       setSocialHandleError(true);
     } else {
       setSocialHandleError(false);
-      navigate("/");
+      const { error } = await supabase.from("creators").insert([
+        {
+          name: name,
+          imageUrl: imageUrl,
+          description: description,
+          youtubeUrl: youtubeUrl,
+          twitterUrl: twitterUrl,
+          instagramUrl: instagramUrl,
+        },
+      ]);
+
+      if (error) {
+        console.error("Error inserting data:", error);
+      } else {
+        navigate("/");
+      }
     }
   };
 
