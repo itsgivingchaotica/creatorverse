@@ -36,13 +36,14 @@ body {
   text-shadow: 2px 2px 0 #000;
 }
 
-.buttonGroup {
+.button-group {
   display: flex;
   justify-content: space-evenly;
   color: white;
   font-family: "Lato", sans-serif;
   font-size: 30px;
   font-weight: 500;
+  margin-top: 40px;
 }
 
 #footer {
@@ -60,8 +61,46 @@ body {
   gap: 0.2rem;
 }
 
+button {
+  background-color: var(--tekhelet) !important;
+  max-width: 16rem;
+  height: 4rem;
+  display: flex;
+  border: 1px solid white !important;
+}
+
+button:hover {
+  background-color: var(--plum) !important;
+}
+
+.button-text {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 530px) {
+  button {
+    max-width: 12rem;
+  }
+  .button-text {
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 430px) {
   .title {
     font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  button {
+    max-width: 9rem;
+  }
+  .button-text {
+    font-size: 14px;
   }
 }
