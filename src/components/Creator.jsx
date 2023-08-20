@@ -11,6 +11,7 @@ import {
 import { MdEdit } from "react-icons/md";
 
 const Creator = ({
+  id,
   name,
   youtubeUrl,
   twitterUrl,
@@ -43,7 +44,7 @@ const Creator = ({
           <h2 className="card-title">{name.toUpperCase()}</h2>
           <div className="card-actions">
             <NavLink to={`/view/${id}`}>
-              <div className="card-action" onClick={handleInfoClick}>
+              <div className="card-action">
                 <BsInfoCircleFill />
               </div>
             </NavLink>
@@ -54,21 +55,21 @@ const Creator = ({
         </div>
         <div className="card-links">
           {youtubeUrl ? (
-            <p className="card-text" onClick={handleYoutubeClick}>
+            <p className="card-link" onClick={handleYoutubeClick}>
               <BsYoutube />
             </p>
           ) : (
             <></>
           )}
           {twitterUrl ? (
-            <p className="card-text" onClick={handleTwitterClick}>
+            <p className="card-link" onClick={handleTwitterClick}>
               <BsTwitter />
             </p>
           ) : (
             <></>
           )}
           {instagramUrl ? (
-            <p className="card-text" onClick={handleInstagramClick}>
+            <p className="card-link" onClick={handleInstagramClick}>
               <BsInstagram />
             </p>
           ) : (
