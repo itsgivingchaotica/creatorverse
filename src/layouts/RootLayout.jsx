@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import "@picocss/pico/css/pico.css";
 import "../styles/root.css";
 
@@ -9,9 +9,17 @@ const RootLayout = () => {
       <header id="header">
         <div className="banner">
           <div className="title">Creatorverse</div>
-          <div className="buttonGroup">
-            <div>View All Creators</div>
-            <div>Add A Creator</div>
+          <div className="button-group">
+            <NavLink to={"/"}>
+              <button className="button-text">
+                <div>VIEW ALL CREATORS</div>
+              </button>
+            </NavLink>
+            <NavLink to={"/add"}>
+              <button className="button-text">
+                <div>ADD A CREATOR</div>
+              </button>
+            </NavLink>
           </div>
         </div>
       </header>
