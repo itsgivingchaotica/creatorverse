@@ -23,14 +23,15 @@ const router = createHashRouter(
         }
       />
       <Route path="/add" element={<AddCreator />} />
-      <Route path="/edit" element={<EditCreator />} />
-      <Route path="/view" element={<ViewCreator />} />
+      <Route path="/edit/:id" element={<EditCreator />} />
+      <Route path="/view/:id" element={<ViewCreator />} />
     </Route>
   )
 );
 
 function App() {
   const [creators, setCreators] = useState([]);
+  const [currId, setCurrId] = useState();
 
   useEffect(() => {
     const fetchCreators = async () => {
@@ -50,7 +51,9 @@ function App() {
 
   return (
     <>
-      <CreatorsContext.Provider value={{ creators, setCreators }}>
+      <CreatorsContext.Provider
+        value={{ creators, setCreators, currId, setCurrId }}
+      >
         <div className="App">
           <RouterProvider router={router} />
         </div>
