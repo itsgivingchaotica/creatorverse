@@ -1,36 +1,38 @@
 import React, { useContext } from "react";
 import Creator from "../components/Creator";
 import { CreatorsContext } from "../CreatorsContext";
+import "../styles/creator.css";
 
 const ShowCreators = () => {
-  const { creators } = useContext(CreatorsContext);
-  console.log(creators);
+  let { creators } = useContext(CreatorsContext);
+
   return (
-    <div
-      style={{
-        height: "1000px",
-        overflow: "scroll",
-        display: "grid",
-        placeItems: "center",
-        marginTop: "200px",
-      }}
-    >
-      {creators.map((creator) => (
-        <div
-          id={creator.id}
-          key={creator.id}
-          style={{ display: "grid", placeItems: "center" }}
-        >
-          <Creator
-            name={creator.name}
-            youtubeUrl={creator.youtubeUrl}
-            twitterUrl={creator.twitterUrl}
-            instagramUrl={creator.instagramUrl}
-            description={creator.description}
-            imageUrl={creator.imageUrl}
-          />
+    <div className="creators-list">
+      {creators ? (
+        creators.map((creator) => (
+          <div
+            key={creator.id}
+            id={creator.id}
+            className="creator-container"
+          >
+            <Creator
+              name={creator.name}
+              youtubeUrl={creator.youtubeUrl}
+              twitterUrl={creator.twitterUrl}
+              instagramUrl={creator.instagramUrl}
+              description={creator.description}
+              imageUrl={creator.imageUrl}
+            />
+          </div>
+        ))
+      ) : (
+        <div className="empty-results-container">
+          <h3 className="empty-results">NO CREATORS YET &#x1F614; </h3>
+          <h5 className="create-list">
+            GO AHEAD AND CRAFT YOUR CREATORS LIST!
+          </h5>
         </div>
-      ))}
+      )}
     </div>
   );
 };
