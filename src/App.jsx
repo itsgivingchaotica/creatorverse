@@ -45,7 +45,27 @@ function App() {
         console.log(error.message);
       }
     };
+
+    const channel = supabase
+      .channel("schema-db-changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "creators",
+        },
+        (payload) =>
+          setCreators((prevCreators) => [...prevCreators, payload.new])
+      )
+      .subscribe();
+
     fetchCreators();
+
+    return () => {
+      // Clean up the subscription when the component unmounts
+      channel.unsubscribe();
+    };
   }, []);
 
   return (
