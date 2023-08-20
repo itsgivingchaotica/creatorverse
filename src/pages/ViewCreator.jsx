@@ -9,6 +9,18 @@ const ViewCreator = () => {
   const { creators } = useContext(CreatorsContext);
   const creator = creators.filter((c) => c.id == id);
 
+  const handleYoutubeClick = () => {
+    window.open(`https://youtube.com/@${creator[0].youtubeUrl}`, "_blank");
+  };
+
+  const handleTwitterClick = () => {
+    window.open(`https://twitter.com/${creator[0].twitterUrl}`, "_blank");
+  };
+
+  const handleInstagramClick = () => {
+    window.open(`https://instagram.com/${creator[0].instagramUrl}`, "_blank");
+  };
+
   if (!creator || Object.keys(creator).length === 0) {
     return <div aria-busy="true" className="creator-loading"></div>;
   }
@@ -26,7 +38,7 @@ const ViewCreator = () => {
         <div className="creator-description">{creator[0].description}</div>
         <div className="creator-handles">
           {creator[0].youtubeUrl ? (
-            <div className="creator-handle">
+            <div className="creator-handle" onClick={handleYoutubeClick}>
               <BsYoutube style={{ marginRight: "10px" }} /> @
               {creator[0].youtubeUrl}
             </div>
@@ -34,7 +46,7 @@ const ViewCreator = () => {
             <></>
           )}
           {creator[0].twitterUrl ? (
-            <div className="creator-handle">
+            <div className="creator-handle" onClick={handleTwitterClick}>
               <BsTwitter style={{ marginRight: "10px" }} /> @
               {creator[0].twitterUrl}
             </div>
@@ -42,7 +54,7 @@ const ViewCreator = () => {
             <></>
           )}
           {creator[0].instagramUrl ? (
-            <div className="creator-handle">
+            <div className="creator-handle" onClick={handleInstagramClick}>
               <BsInstagram style={{ marginRight: "10px" }} /> @
               {creator[0].instagramUrl}
             </div>
