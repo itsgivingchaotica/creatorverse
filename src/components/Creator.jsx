@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "@picocss/pico/css/pico.css";
 import "../styles/creator.css";
@@ -9,10 +9,8 @@ import {
   BsInfoCircleFill,
 } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
-import { CreatorsContext } from "../CreatorsContext";
 
 const Creator = ({
-  id,
   name,
   youtubeUrl,
   twitterUrl,
@@ -20,12 +18,6 @@ const Creator = ({
   description,
   imageUrl,
 }) => {
-  const { setCurrId } = useContext(CreatorsContext);
-
-  const handleInfoClick = () => {
-    setCurrId(id);
-  };
-
   const handleYoutubeClick = () => {
     window.open(`https://youtube.com/@${youtubeUrl}`, "_blank");
   };
