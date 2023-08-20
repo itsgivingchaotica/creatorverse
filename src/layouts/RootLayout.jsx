@@ -1,10 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import "@picocss/pico/css/pico.css";
 import "../styles/root.css";
 
 const RootLayout = () => {
   return (
-    <div id="layout">
+    <div id="layout" style={{ width: "100%" }}>
       <header id="header">
         <div className="banner">
           <div className="title">Creatorverse</div>
