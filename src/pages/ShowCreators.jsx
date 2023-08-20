@@ -12,6 +12,7 @@ const ShowCreators = () => {
         creators.map((creator) => (
           <div key={creator.id} className="creator-container">
             <Creator
+              id={creator.id}
               name={creator.name}
               youtubeUrl={creator.youtubeUrl}
               twitterUrl={creator.twitterUrl}
