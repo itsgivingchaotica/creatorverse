@@ -6,16 +6,12 @@ import "../styles/creator.css";
 const ShowCreators = () => {
   let { creators } = useContext(CreatorsContext);
 
-  useEffect(() => {
-    console.log(creators.map((creator) => creator.id));
-  }, []);
   return (
     <div className="creators-list">
       {creators ? (
         creators.map((creator) => (
           <div key={creator.id} className="creator-container">
             <Creator
-              id={creator.id}
               name={creator.name}
               youtubeUrl={creator.youtubeUrl}
               twitterUrl={creator.twitterUrl}
