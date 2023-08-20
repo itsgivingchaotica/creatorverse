@@ -9,11 +9,19 @@ import RootLayout from "./layouts/RootLayout";
 import { AddCreator, EditCreator, ShowCreators, ViewCreator } from "./pages";
 import { supabase } from "./client";
 import { CreatorsContext } from "./CreatorsContext";
+import "./App.css";
 
 const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<ShowCreators />} />
+      <Route
+        index
+        element={
+          <div id="creators">
+            <ShowCreators />
+          </div>
+        }
+      />
       <Route path="/add" element={<AddCreator />} />
       <Route path="/edit" element={<EditCreator />} />
       <Route path="/view" element={<ViewCreator />} />
