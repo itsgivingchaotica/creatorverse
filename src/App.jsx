@@ -31,7 +31,6 @@ const router = createHashRouter(
 
 function App() {
   const [creators, setCreators] = useState([]);
-  const [currId, setCurrId] = useState();
 
   useEffect(() => {
     const fetchCreators = async () => {
@@ -51,9 +50,7 @@ function App() {
 
   return (
     <>
-      <CreatorsContext.Provider
-        value={{ creators, setCreators, currId, setCurrId }}
-      >
+      <CreatorsContext.Provider value={{ creators, setCreators }}>
         <div className="App">
           <RouterProvider router={router} />
         </div>

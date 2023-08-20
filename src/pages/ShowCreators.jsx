@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Creator from "../components/Creator";
 import { CreatorsContext } from "../CreatorsContext";
 import "../styles/creator.css";
@@ -6,16 +6,16 @@ import "../styles/creator.css";
 const ShowCreators = () => {
   let { creators } = useContext(CreatorsContext);
 
+  useEffect(() => {
+    console.log(creators.map((creator) => creator.id));
+  }, []);
   return (
     <div className="creators-list">
       {creators ? (
         creators.map((creator) => (
-          <div
-            key={creator.id}
-            id={creator.id}
-            className="creator-container"
-          >
+          <div key={creator.id} className="creator-container">
             <Creator
+              id={creator.id}
               name={creator.name}
               youtubeUrl={creator.youtubeUrl}
               twitterUrl={creator.twitterUrl}
