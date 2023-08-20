@@ -1,11 +1,20 @@
+@import "@picocss/pico/css/pico.css";
+
+* {
+  --plum: #9f3086ff;
+  --lilac: #cb9ac4ff;
+  --tekhelet: #4c2f76ff;
+  --delft-blue: #112f5dff;
+  --fluorescent-cyan: #4af5f2ff;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,17 +62,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
