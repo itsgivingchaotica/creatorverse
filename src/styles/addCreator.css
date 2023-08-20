@@ -46,6 +46,15 @@ textarea {
   font-weight: 700;
 }
 
+.social-handle-error {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 8px;
+  color: red;
+  align-items: center;
+  animation: pulse 1s infinite;
+}
+
 .handle-icon-container {
   display: flex;
 }
@@ -65,6 +74,18 @@ button {
   justify-content: center;
   align-items: center;
   max-width: 50vw !important;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  50% {
+    transform: scale(1.1); /* Scaled up */
+  }
+  100% {
+    transform: scale(1); /* Back to original scale */
+  }
 }
 
 @media screen and (max-width: 600px) {
