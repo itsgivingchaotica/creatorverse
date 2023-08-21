@@ -48,9 +48,11 @@ const Creator = ({
                 <BsInfoCircleFill />
               </div>
             </NavLink>
-            <div className="card-action">
-              <MdEdit />
-            </div>
+            <NavLink to={`/edit/${id}`}>
+              <div className="card-action">
+                <MdEdit />
+              </div>
+            </NavLink>
           </div>
         </div>
         <div className="card-links">

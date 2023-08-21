@@ -69,6 +69,7 @@
   text-shadow: 2px 2px 0 #000;
   cursor: pointer;
   margin-right: 20px;
+  justify-content: center;
 }
 
 .card-link:hover {
@@ -78,6 +79,7 @@
 .card-links {
   display: flex;
   transform: translateY(-50px);
+  align-items: center;
 }
 
 .card-description-container {

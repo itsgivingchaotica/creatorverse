@@ -8,7 +8,6 @@ const ViewCreator = () => {
   const { id } = useParams();
   const { creators } = useContext(CreatorsContext);
   const creator = creators.filter((c) => c.id == id);
-
   const handleYoutubeClick = () => {
     window.open(`https://youtube.com/@${creator[0].youtubeUrl}`, "_blank");
   };
