@@ -184,13 +184,9 @@ const AddCreator = () => {
                 }}
               />
             </label>
-            <div className="submit-button">
-              <button
-                type="submit"
-                className="submit-button-text"
-                style={{ width: "3000px" }}
-              >
-                <div className="submit-button-text">SUBMIT</div>
+            <div>
+              <button type="submit" className="submit-button" style={{ width: "3000px" }}>
+                <div>SUBMIT</div>
               </button>
             </div>
           </div>

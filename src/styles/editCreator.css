@@ -82,6 +82,30 @@ button {
   align-items: center;
 }
 
+.submit-button {
+  background-color: var(--tekhelet) !important;
+  max-width: 16rem;
+  height: 4rem;
+  display: flex;
+  border: 1px solid white !important;
+}
+
+.submit-button:hover {
+  background-color: green !important;
+}
+
+.delete-button {
+  background-color: var(--tekhelet) !important;
+  max-width: 16rem;
+  height: 4rem;
+  display: flex;
+  border: 1px solid white !important;
+}
+
+.delete-button:hover {
+  background-color: red !important;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1); /* Initial scale */

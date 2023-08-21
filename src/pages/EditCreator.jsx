@@ -256,19 +256,19 @@ const EditCreator = () => {
               />
             </label>
             <div className="edit-form-buttons">
-              <div className="submit-button">
+              <div>
                 <button
                   type="submit"
-                  className="submit-button-text"
+                  className="submit-button"
                   style={{ width: "23vw", marginRight: "40px" }}
                 >
                   <div className="submit-button-text">SUBMIT</div>
                 </button>
               </div>
-              <div className="delete-button">
+              <div>
                 <button
                   type="button"
-                  className="delete-button-text"
+                  className="delete-button"
                   style={{ width: "23vw" }}
                 >
                   <div className="delete-button-text">DELETE</div>
