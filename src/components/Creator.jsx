@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "@picocss/pico/css/pico.css";
 import "../styles/creator.css";
@@ -41,7 +41,7 @@ const Creator = ({
     >
       <div className="card-content">
         <div className="card-header">
-          <h2 className="card-title">{name.toUpperCase()}</h2>
+          <h2 className="card-title">{name?.toUpperCase()}</h2>
           <div className="card-actions">
             <NavLink to={`/view/${id}`}>
               <div className="card-action">

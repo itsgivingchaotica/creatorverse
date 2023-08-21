@@ -20,7 +20,7 @@
   background-size: cover;
   background-position: center 20%;
   display: inline-block;
-  width: 30vw;
+  width: 40vw;
   max-height: 46vh;
   box-shadow: 0 -1px 5px 2px rgba(255, 255, 255, 0.2);
   font-family: "Lato", sans-serif;
@@ -35,7 +35,7 @@
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  padding-top: 13vh;
 }
 
 .card-header {
@@ -124,6 +124,75 @@
   text-align: center;
 }
 
+.delete-button {
+  background-color: var(--tekhelet) !important;
+  max-width: 16rem;
+  height: 4rem;
+  display: flex;
+  font-weight: 700;
+  border: 1px solid white !important;
+}
+
+.delete-button:hover {
+  background-color: red !important;
+}
+
+.edit-button {
+  background-color: var(--tekhelet) !important;
+  max-width: 16rem;
+  height: 4rem;
+  display: flex;
+  border: 1px solid white !important;
+  font-weight: 700;
+}
+
+.edit-button:hover {
+  background-color: var(--fluorescent-cyan) !important;
+  color: var(--shocking-pink);
+}
+
+header {
+  font-size: 3vw;
+}
+
+.header-message {
+  display: flex;
+  justify-content: space-between;
+  animation: headingPulse 1s infinite;
+}
+
+.check-message {
+  display: flex;
+  justify-content: center;
+  font-size: 2vw;
+  padding-bottom: 50px;
+}
+
+.undo-button {
+  font-weight: 700;
+}
+
+.undo-button:hover {
+  background-color: var(--fluorescent-cyan) !important;
+  color: var(--shocking-pink);
+}
+
+.confirmation-button {
+  font-weight: 700;
+}
+
+@keyframes headingPulse {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  50% {
+    transform: scale(1.025); /* Scaled up */
+  }
+  100% {
+    transform: scale(1); /* Back to original scale */
+  }
+}
+
 @media screen and (max-width: 900px) {
   .card-title {
     font-size: 20px;
@@ -133,5 +202,21 @@
   }
   .create-list {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .creators-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    width: 150vw;
+    margin-left: 7%;
+  }
+
+  .card-content {
+    padding-top: 8vh;
   }
 }

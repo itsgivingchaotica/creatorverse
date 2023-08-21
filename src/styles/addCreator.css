@@ -63,11 +63,6 @@ textarea {
   margin-right: 10px;
 }
 
-.submit-button {
-  display: flex;
-  justify-content: center;
-}
-
 button {
   display: flex;
   height: 80px;
@@ -78,6 +73,10 @@ button {
 
 .edit-form-buttons {
   display: flex;
+}
+
+.submit-button:hover {
+  background-color: green;
 }
 
 @keyframes pulse {
