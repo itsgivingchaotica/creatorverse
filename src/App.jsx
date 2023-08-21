@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   createHashRouter,
   createRoutesFromElements,
@@ -8,7 +8,7 @@ import {
 import RootLayout from "./layouts/RootLayout";
 import { AddCreator, EditCreator, ShowCreators, ViewCreator } from "./pages";
 import { supabase } from "./client";
-import { CreatorsContext } from "./CreatorsContext";
+import { CreatorsContext } from "./CreatorsContext.js";
 import "./App.css";
 
 const router = createHashRouter(
@@ -45,7 +45,7 @@ function App() {
         console.log(error.message);
       }
     };
-
+    //create real time update channel
     const channel = supabase
       .channel("schema-db-changes")
       .on(
@@ -55,27 +55,39 @@ function App() {
           schema: "public",
           table: "creators",
         },
-        (payload) =>
-          setCreators((prevCreators) => [...prevCreators, payload.new])
+        (payload) => {
+          setCreators((prevCreators) => {
+            const updatedCreatorIndex = prevCreators.findIndex(
+              (creator) => creator.id === payload.new.id
+            );
+            // Update the local state with the new creator
+            if (updatedCreatorIndex !== -1) {
+              const updatedCreators = [...prevCreators];
+              updatedCreators[updatedCreatorIndex] = payload.new;
+              return updatedCreators;
+            } else {
+              //update with the new creator adde
+              return [...prevCreators, payload.new];
+            }
+          });
+        }
       )
       .subscribe();
 
     fetchCreators();
 
     return () => {
-      // Clean up the subscription when the component unmounts
+      // Clean up subscription on component unmount
       channel.unsubscribe();
     };
   }, []);
 
   return (
-    <>
+    <div className="App">
       <CreatorsContext.Provider value={{ creators, setCreators }}>
-        <div className="App">
-          <RouterProvider router={router} />
-        </div>
+        <RouterProvider router={router} />
       </CreatorsContext.Provider>
-    </>
+    </div>
   );
 }
 
