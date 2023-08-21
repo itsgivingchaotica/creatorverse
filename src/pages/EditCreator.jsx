@@ -8,7 +8,7 @@ import "../styles/editCreator.css";
 const EditCreator = () => {
   const { id } = useParams();
   const { creators, setCreators } = useContext(CreatorsContext);
-  const creator = creators.filter((c) => c.id == id);
+  const creator = creators?.filter((c) => c.id == id);
   const [name, setName] = useState();
   const [imageUrl, setImageUrl] = useState();
   const [description, setDescription] = useState();
@@ -16,19 +16,8 @@ const EditCreator = () => {
   const [twitterUrl, setTwitterUrl] = useState();
   const [instagramUrl, setInstagramUrl] = useState();
   const [socialHandleError, setSocialHandleError] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-
-  const updateCreator = (updatedCreator) => {
-    setCreators((prevCreators) => {
-      const updatedCreators = prevCreators.map((creator) => {
-        if (creator.id === updatedCreator.id) {
-          return { ...creator, ...updatedCreator };
-        }
-        return creator;
-      });
-      return updatedCreators;
-    });
-  };
 
   const handleChangeName = (e) => {
     console.log(e.target.value);
@@ -68,7 +57,6 @@ const EditCreator = () => {
       setSocialHandleError(true);
     } else {
       setSocialHandleError(false);
-      console.log("submitting");
       const { error } = await supabase
         .from("creators")
         .update([
@@ -86,12 +74,11 @@ const EditCreator = () => {
       if (error) {
         console.error("Error inserting data:", error);
       } else {
-        const { data, error: fetchError } = await supabase
-          .from("creators")
-          .select();
-        if (fetchError) {
-          console.log(fetchError);
+        const { error } = await supabase.from("creators").select();
+        if (error) {
+          console.log(error);
         } else {
+          //create an object from form information
           const updatedCreator = {
             id: id,
             name: name,
@@ -101,6 +88,8 @@ const EditCreator = () => {
             twitterUrl: twitterUrl,
             instagramUrl: instagramUrl,
           };
+
+          //update the creators from context to account for edits
           setCreators((prevCreators) => {
             return prevCreators.map((creator) =>
               creator.id === id ? updatedCreator : creator
@@ -112,17 +101,48 @@ const EditCreator = () => {
     }
   };
 
+  const handleDeleteCreator = async () => {
+    const { error } = await supabase.from("creators").delete().eq("id", id);
+
+    if (error) {
+      console.error("Error inserting data:", error);
+    } else {
+      const { error } = await supabase.from("creators").select();
+      if (error) {
+        console.log(error);
+      } else {
+        //create an object from form information
+        //update the creators from context to account for edits
+        setCreators((prevCreators) => {
+          return prevCreators.filter((creator) => creator.id !== id);
+        });
+        navigate("/");
+      }
+    }
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   useEffect(() => {
-    setName(creator[0]?.name);
-    setImageUrl(creator[0]?.imageUrl);
-    setDescription(creator[0]?.description);
-    setYoutubeUrl(creator[0]?.youtubeUrl);
-    setTwitterUrl(creator[0]?.twitterUrl);
-    setInstagramUrl(creator[0]?.youtubeUrl);
+    //fill in the form on render from current database values
+    if (creators) {
+      setName(creator[0]?.name);
+      setImageUrl(creator[0]?.imageUrl);
+      setDescription(creator[0]?.description);
+      setYoutubeUrl(creator[0]?.youtubeUrl);
+      setTwitterUrl(creator[0]?.twitterUrl);
+      setInstagramUrl(creator[0]?.youtubeUrl);
+    }
   }, []);
 
   if (!creator) {
-    return <div>Loading...</div>; // Or any other appropriate loading or error message
+    return <div aria-busy="true" className="creator-loading"></div>;
   }
 
   return (
@@ -269,6 +289,7 @@ const EditCreator = () => {
                 <button
                   type="button"
                   className="delete-button"
+                  onClick={handleShowModal}
                   style={{ width: "23vw" }}
                 >
                   <div className="delete-button-text">DELETE</div>
@@ -278,6 +299,39 @@ const EditCreator = () => {
           </div>
         </form>
       </div>
+      {showModal && (
+        <div onClick={handleCloseModal}>
+          <dialog open>
+            <article>
+              <header>
+                <a aria-label="Close" class="close"></a>
+                <div className="header-message">
+                  <span role="img" aria-label="Warning Sign">
+                    {"\u26A0\uFE0F"}
+                  </span>
+                  HOLD UP A SEC!
+                  <span role="img" aria-label="Warning Sign">
+                    {"\u26A0\uFE0F"}
+                  </span>
+                </div>
+              </header>
+              <p className="check-message">
+                You're good with saying goodbye to {creator[0].name}?
+              </p>
+              <div></div>
+              <button className="undo-button" onClick={handleCloseModal}>
+                ACTUALLY, NEVER MIND
+              </button>
+              <button
+                className="confirmation-button"
+                onClick={handleDeleteCreator}
+              >
+                YUP, ABSOLUTELY SURE!
+              </button>
+            </article>
+          </dialog>
+        </div>
+      )}
     </div>
   );
 };
