@@ -30,7 +30,7 @@ const router = createHashRouter(
 );
 
 function App() {
-  const [creators, setCreators] = useState([]);
+  const [creators, setCreators] = useState();
 
   useEffect(() => {
     const fetchCreators = async () => {
@@ -45,6 +45,7 @@ function App() {
         console.log(error.message);
       }
     };
+
     //create real time update channel
     const channel = supabase
       .channel("schema-db-changes")
