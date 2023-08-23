@@ -61,7 +61,7 @@ const ShowCreators = () => {
 
   return (
     <div className="creators-list">
-      {creators ? (
+      {creators?.length > 0 ? (
         creators.map((creator) => (
           <div key={creator.id} className="creator-container">
             <Creator
