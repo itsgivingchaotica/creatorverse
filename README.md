@@ -41,6 +41,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
+<p align="center"> 
+  <a href="https://www.youtube.com/watch?v=lm0gTUHqVrI">Full Demo Walkthrough</a>
+</p>
+
 Tools used for the demo were: QuickTime Player, Cloudconverter, Veed.io
 
 ## View Creators and Profiles
