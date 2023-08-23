@@ -162,7 +162,7 @@ const EditCreator = () => {
                 type="text"
                 id="name"
                 name="name"
-                value={name || creator[0]?.name}
+                value={name}
                 autoComplete="off"
                 required
                 onChange={(e) => {
@@ -180,7 +180,7 @@ const EditCreator = () => {
                 type="text"
                 id="image"
                 name="image"
-                value={imageUrl || creator[0]?.imageUrl}
+                value={imageUrl}
                 autoComplete="off"
                 required
                 onChange={(e) => {
@@ -198,7 +198,7 @@ const EditCreator = () => {
                 type="text"
                 id="image"
                 name="image"
-                value={description || creator[0]?.description}
+                value={description}
                 autoComplete="off"
                 required
                 onChange={(e) => {
@@ -226,7 +226,7 @@ const EditCreator = () => {
               </div>
               <input
                 type="text"
-                value={youtubeUrl || creator[0]?.youtubeUrl}
+                value={youtubeUrl}
                 id="youtubeUrl"
                 name="youtubeUrl"
                 autoComplete="off"
@@ -248,7 +248,7 @@ const EditCreator = () => {
                 type="text"
                 id="twitterUrl"
                 name="twitterUrl"
-                value={twitterUrl || creator[0]?.twitterUrl}
+                value={twitterUrl}
                 autoComplete="off"
                 onChange={(e) => {
                   handleChangeTwitterUrl(e);
@@ -268,7 +268,7 @@ const EditCreator = () => {
                 type="text"
                 id="instagramUrl"
                 name="instagramUrl"
-                value={instagramUrl || creator[0]?.instagramUrl}
+                value={instagramUrl}
                 autoComplete="off"
                 onChange={(e) => {
                   handleChangeInstagramUrl(e);
