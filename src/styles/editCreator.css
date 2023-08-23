@@ -159,7 +159,7 @@ header {
     transform: scale(1); /* Initial scale */
   }
   50% {
-    transform: scale(0.025); /* Scaled up */
+    transform: scale(1.025); /* Scaled up */
   }
   100% {
     transform: scale(1); /* Back to original scale */
