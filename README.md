@@ -1,10 +1,16 @@
 # WEB103 Prework - Creatorverse
 
-Submitted by: Saoirse Siobhn Ebert
+Submitted by: Saoirse Siobhan Ebert
 
 About this web app: Creatorverse allows users to add their favorite content creators from YouTube, Twitter, and/or Instagram, with the ability to edit their information and delete creators as desired.
 
 Time spent: 36 hours
+
+<p align="center"> 
+  <img width="514" alt="Screen Shot 2023-08-23 at 2 34 44 AM" src="https://github.com/itsgivingchaotica/creatorverse/assets/91578619/1ddb255a-89d2-416a-a48e-b81ebe7d791e">
+</p>
+
+<h1 align="center"> <a href="https://fuse-video-frontend-f2j7.vercel.app](https://creatorverse-puce.vercel.app)"/>Deployed on Vercel</a> </h1>
 
 ## Required Features
 
@@ -35,23 +41,36 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
+Tools used for the demo were: QuickTime Player, Cloudconverter, Veed.io
 
-[Imgur Album](https://imgur.com/a/fMUXqAq)
+## View Creators and Profiles
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  👉🏿 GIF tool here
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/c6d0b0fe-2e72-44ed-b347-6e59eed59166
+
+## Edit a Creator with Error Handling
+
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/499a672a-a8b4-49d8-aa1e-1ec963e4101c
+
+
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/5ca8231b-59ba-4e65-bb4b-4f269930c8f0
+
+
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/02788524-f8c8-4707-8743-ff1ebb734642
+
+## Deleting Creators
+
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/6ae7585a-82f3-4b1f-aed8-c74b2a2d07ec
+
+https://github.com/itsgivingchaotica/creatorverse/assets/91578619/daf73978-7f78-441c-8372-e40be1373f89
+
 
 ## Notes
 
-Describe any challenges encountered while building the app or any additional context you'd like to add.
+Syncing the data between Supabase and the UI was rathering interesting, producing several bugs which required diagnosing. I discovered in the doc Realtime Subscription and implemented that alongside classic React Hooks techniques for fetching data, using Axios, from Supabase. State was created for the table using Context. In addition, I committed to allow someone to refresh the page without losing the data they were accessing.
 
 ## License
 
-Copyright [👉🏿 2023] [👉🏿 Saoirse Siobhan Ebert]
+Copyright 2023 Saoirse Siobhan Ebert
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
