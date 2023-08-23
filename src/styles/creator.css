@@ -10,6 +10,7 @@
 .creator-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: -3rem;
   width: 50%;
   padding: 1rem;
