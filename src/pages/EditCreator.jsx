@@ -300,7 +300,7 @@ const EditCreator = () => {
         </form>
       </div>
       {showModal && (
-        <div onClick={handleCloseModal}>
+        <div onClick={handleCloseModal} className="modal-container">
           <dialog open>
             <article>
               <header>
@@ -318,16 +318,17 @@ const EditCreator = () => {
               <p className="check-message">
                 You're good with saying goodbye to {creator[0].name}?
               </p>
-              <div></div>
-              <button className="undo-button" onClick={handleCloseModal}>
-                ACTUALLY, NEVER MIND
-              </button>
-              <button
-                className="confirmation-button"
-                onClick={handleDeleteCreator}
-              >
-                YUP, ABSOLUTELY SURE!
-              </button>
+              <div className="modal-button-group">
+                <button className="undo-button" onClick={handleCloseModal}>
+                  ACTUALLY, NEVER MIND
+                </button>
+                <button
+                  className="confirmation-button"
+                  onClick={handleDeleteCreator}
+                >
+                  YUP, ABSOLUTELY SURE!
+                </button>
+              </div>
             </article>
           </dialog>
         </div>

@@ -124,6 +124,13 @@
   text-align: center;
 }
 
+.modal-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .delete-button {
   background-color: var(--tekhelet) !important;
   max-width: 16rem;
@@ -151,6 +158,10 @@
   color: var(--shocking-pink);
 }
 
+article {
+  width: 40rem !important;
+}
+
 header {
   font-size: 3vw;
 }
@@ -164,12 +175,14 @@ header {
 .check-message {
   display: flex;
   justify-content: center;
-  font-size: 2vw;
+  text-align: center;
+  font-size: 1rem;
   padding-bottom: 50px;
 }
 
 .undo-button {
   font-weight: 700;
+  font-size: 1rem;
 }
 
 .undo-button:hover {
@@ -178,6 +191,7 @@ header {
 }
 
 .confirmation-button {
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -203,6 +217,9 @@ header {
   .create-list {
     font-size: 20px;
   }
+  .header-message {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -218,5 +235,20 @@ header {
 
   .card-content {
     padding-top: 8vh;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .confirmation-button {
+    font-size: 0.75rem;
+  }
+  .undo-button {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header-message {
+    font-size: 1.25rem;
   }
 }
