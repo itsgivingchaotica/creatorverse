@@ -10,7 +10,7 @@ Time spent: 36 hours
   <img width="514" alt="Screen Shot 2023-08-23 at 2 34 44 AM" src="https://github.com/itsgivingchaotica/creatorverse/assets/91578619/62b24e00-cb3f-4cb2-9911-75b032049f68">
 </p>
 
-<h1 align="center"> <a href="https://fuse-video-frontend-f2j7.vercel.app](https://creatorverse-puce.vercel.app)"/>Deployed on Vercel</a> </h1>
+<h1 align="center"> <a href="https://creatorverse-puce.vercel.app"/>Deployed on Vercel</a> </h1>
 
 ## Required Features
 
